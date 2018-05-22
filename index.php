@@ -19,7 +19,7 @@
                         if($query2) {
                             if(mysqli_num_rows($query2) > 0) {
                                 while($row2 = mysqli_fetch_array($query2)) {
-                                    echo "<h3>".$row2['nazwa']."</h3><br>";
+                                    echo "<h3><a href='category.php?id_cat=".$row2['id_kategoria']."'>".$row2['nazwa']."</a></h3><br>";
                                 }
                             }
                         }
