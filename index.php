@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(isset($_GET['wyloguj'])) {
+        if($_GET['wyloguj'] == 1) {
+            $_SESSION['login'] = 0;
+            $_SESSION['admin'] = 0;
+            echo '<script>location.href="index.php"</script>';
+        }
+    }
+?>
 <html>
     <head>
         <title>Strona Główna</title>
@@ -8,6 +18,18 @@
             include_once('connect.php');
             mysqli_query($connect, "SET CHARSET utf8");
             mysqli_query($connect, "SET NAMES `utf8` COLLATE `utf8_polish_ci`"); 
+
+
+            if(!isset($_SESSION['login'])) {
+                $_SESSION['login'] = 0;
+            }
+            if($_SESSION['login'] == 0) {
+                echo '<a href="login.php">Zaloguj</a><br>';
+                echo '<a href="register.php">Zarejestruj się</a>';
+            }
+            else {
+                echo '<a href="index.php?wyloguj=1">Wyloguj</a>';
+            }
 
             $query = mysqli_query($connect, "SELECT * FROM `dzial` ORDER BY id_dzial ASC");
 
