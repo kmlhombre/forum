@@ -19,7 +19,6 @@
             mysqli_query($connect, "SET CHARSET utf8");
             mysqli_query($connect, "SET NAMES `utf8` COLLATE `utf8_polish_ci`"); 
 
-
             if(!isset($_SESSION['login'])) {
                 $_SESSION['login'] = 0;
             }

@@ -31,7 +31,7 @@
                         else {
                             $_SESSION['admin'] = 0;
                         }
-                        $_SESSION['login'] = 1;
+                        $_SESSION['login'] = $user['id_user'];
                         echo '<script>location.href="index.php"</script>';
                     }
                     else {
